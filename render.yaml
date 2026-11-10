@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: devops-lab3
+    runtime: python
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: STUDENT_NAME
+        value: "Denys Tsyhanenko"
